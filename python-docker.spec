@@ -17,7 +17,7 @@ Requires:       python-requests >= 2.14.2
 Requires:       python-six >= 1.4.0
 Requires:       python-websocket-client >= 0.32.0
 Requires:       python-docker-pycreds >= 0.2.1
-Requires:       python-pyOpenSSL
+Requires:       python-pyopenssl
 Requires:       python-idna
 Requires:       python-cryptography
 

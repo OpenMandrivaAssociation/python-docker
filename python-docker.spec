@@ -6,7 +6,7 @@
 
 Name:           python-%{srcname}
 Version:	4.1.0
-Release:	1
+Release:	2
 Summary:        A Python library for the Docker Engine API
 License:        ASL 2.0
 URL:            https://pypi.python.org/pypi/%{srcname}

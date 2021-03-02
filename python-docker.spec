@@ -5,12 +5,12 @@
 %global srcname docker
 
 Name:           python-%{srcname}
-Version:	4.4.1
+Version:	4.4.4
 Release:	1
 Summary:        A Python library for the Docker Engine API
 License:        ASL 2.0
 URL:            https://pypi.python.org/pypi/%{srcname}
-Source0:	https://files.pythonhosted.org/packages/0e/38/2fcfff66ca99b20eaed9a29f2be6400cb7407f80d35decc6331c3abf6351/docker-4.4.1.tar.gz
+Source0:	https://files.pythonhosted.org/packages/source/d/docker/docker-%{version}.tar.gz
 BuildRequires:  python-devel
 BuildRequires:  python-setuptools
 Requires:       python-requests >= 2.14.2

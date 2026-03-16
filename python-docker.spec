@@ -1,43 +1,42 @@
-%bcond_without python3
-%bcond_without tests
+%define module docker
 
-%bcond_without python2
-%global srcname docker
+Name:		python-docker
+Version:	7.1.0
+Release:	1
+Summary:	A Python library for the Docker Engine API
+Group:		Development/Python
+License:	Apache-2.0
+URL:		https://github.com/docker/docker-py
+Source0:	%{URL}/archive/%{version}/%{name}-%{version}.tar.gz
 
-Name:           python-%{srcname}
-Version:	5.0.3
-Release:	4
-Summary:        A Python library for the Docker Engine API
-License:        ASL 2.0
-URL:            https://pypi.python.org/pypi/%{srcname}
-Source0:	https://files.pythonhosted.org/packages/ab/d2/45ea0ee13c6cffac96c32ac36db0299932447a736660537ec31ec3a6d877/docker-5.0.3.tar.gz
-BuildRequires:  python-devel
-BuildRequires:  python-setuptools
-Requires:       python-requests >= 2.14.2
-Requires:       python-six >= 1.4.0
-Requires:       python-websocket-client >= 0.32.0
-Requires:       python-docker-pycreds >= 0.2.1
-Requires:       python-pyopenssl
-Requires:       python-idna
-Requires:       python-cryptography
-
-BuildArch:      noarch
+BuildSystem:	python
+BuildArch:	noarch
+BuildRequires:	pkgconfig(python)
+BuildRequires:	python%{pyver}dist(hatch-vcs)
+BuildRequires:	python%{pyver}dist(hatchling)
+BuildRequires:	python%{pyver}dist(pip)
+BuildRequires:	python%{pyver}dist(setuptools)
+BuildRequires:	python%{pyver}dist(setuptools-scm)
+BuildRequires:	python%{pyver}dist(wheel)
+Requires:	python%{pyver}dist(packaging) >= 14.0
+Requires:	python%{pyver}dist(websocket-client) >= 0.32.0
+Recommends:	python%{pyver}dist(paramiko) >= 2.4.3
 
 %description
-It lets you do anything the docker command does, but from within Python apps –
-run containers, manage containers, manage Swarms, etc.
+A Python library for the Docker Engine API.
 
-%prep
-%autosetup -n %{srcname}-%{version} -p 1
-rm -fr docker.egg-info
+It lets you do anything the docker command does, but from within
+Python apps – run containers, manage containers, manage Swarms, etc.
 
-%build
-%py3_build
+%prep -a
+# Remove bundled egg-info
+rm -rf %{module}.egg-info
 
-%install
-%py3_install
+%build -p
+export SETUPTOOLS_SCM_PRETEND_VERSION=%{version}
 
 %files
-%license LICENSE
 %doc README.md
-%{python3_sitelib}/*
+%license LICENSE
+%{python3_sitelib}/%{module}
+%{python3_sitelib}/%{module}-%{version}.dist-info

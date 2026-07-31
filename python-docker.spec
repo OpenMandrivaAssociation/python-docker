@@ -1,7 +1,7 @@
 %define module docker
 
 Name:		python-docker
-Version:	7.1.0
+Version:	7.2.0
 Release:	1
 Summary:	A Python library for the Docker Engine API
 Group:		Development/Python

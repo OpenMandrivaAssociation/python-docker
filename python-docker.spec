@@ -2,7 +2,7 @@
 
 Name:		python-docker
 Version:	7.2.0
-Release:	1
+Release:	2
 Summary:	A Python library for the Docker Engine API
 Group:		Development/Python
 License:	Apache-2.0
@@ -11,7 +11,7 @@ Source0:	%{URL}/archive/%{version}/%{name}-%{version}.tar.gz
 
 BuildSystem:	python
 BuildArch:	noarch
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	python%{pyver}dist(hatch-vcs)
 BuildRequires:	python%{pyver}dist(hatchling)
 BuildRequires:	python%{pyver}dist(pip)
@@ -38,5 +38,5 @@ export SETUPTOOLS_SCM_PRETEND_VERSION=%{version}
 %files
 %doc README.md
 %license LICENSE
-%{python3_sitelib}/%{module}
-%{python3_sitelib}/%{module}-%{version}.dist-info
+%{py_sitedir}/%{module}
+%{py_sitedir}/%{module}-%{version}.dist-info
